@@ -1,17 +1,20 @@
 import { useState } from "react";
-import "./App.css";
-import ShoppingForm from "../components/shoppingForm";
-import ShoppingList from "../components/shoppingList";
+import ShoppingForm from "./components/shoppingForm";
+import ShoppingList from "./components/shoppingList";
 
 function App() {
-  const [someText, setSomeText] = useState("");
-  const getFormData = (text) => {
-    setSomeText(text);
+  const [shoppingListItems, setShoppingListItems] = useState({});
+
+  // Yep, we can pass functions as props!
+  const generateList = (listItems) => {
+    setShoppingListItems(listItems);
   };
+
   return (
     <>
-      <h1>Form Demo</h1>
-      <ShoppingForm action={getFormData} />
+      <h1>Time to go Shopping</h1>
+      <ShoppingForm generateList={generateList} />
+      <ShoppingList items={shoppingListItems} />
     </>
   );
 }

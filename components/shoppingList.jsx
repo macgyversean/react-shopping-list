@@ -2,10 +2,12 @@ const ShoppingList = ({ items }) => {
   const { item1, item2, item3 } = items;
   return (
     <>
+      <h2>Shopping list</h2>
+
       <ul>
-        <li>{item1}</li>
-        <li>{item2}</li>
-        <li>{item3}</li>
+        {!!item1 && <li>{item1}</li>}
+        {!!item2 && <li>{item2}</li>}
+        {!!item3 && <li>{item3}</li>}
       </ul>
     </>
   );
